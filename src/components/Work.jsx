@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const staggerContainer = {
   hidden: {},
@@ -41,6 +42,7 @@ const Work = () => {
       status: "Available →",
       statusClass: "bg-green-400 border-2 border-ink shadow-brutal-sm text-ink",
       imagePlaceholder: "client project screenshot",
+      link: "/projects",
     },
   ];
 
@@ -110,11 +112,20 @@ const Work = () => {
               </p>
 
               <div className="mt-auto">
-                <span
-                  className={`inline-flex items-center gap-1 font-sans text-xs font-bold uppercase tracking-wider px-4 py-2 hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-none transition-all cursor-pointer ${project.statusClass}`}
-                >
-                  {project.status}
-                </span>
+                {project.link ? (
+                  <Link
+                    to={project.link}
+                    className={`inline-flex items-center gap-1 font-sans text-xs font-bold uppercase tracking-wider px-4 py-2 hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-none transition-all cursor-pointer ${project.statusClass}`}
+                  >
+                    {project.status}
+                  </Link>
+                ) : (
+                  <span
+                    className={`inline-flex items-center gap-1 font-sans text-xs font-bold uppercase tracking-wider px-4 py-2 hover:translate-y-[1px] hover:translate-x-[1px] hover:shadow-none transition-all cursor-pointer ${project.statusClass}`}
+                  >
+                    {project.status}
+                  </span>
+                )}
               </div>
             </div>
           </motion.div>

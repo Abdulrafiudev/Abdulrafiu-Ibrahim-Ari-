@@ -34,9 +34,15 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-block bg-accent px-4 py-2 border-2 border-ink font-bold font-sans text-xs uppercase tracking-widest text-ink mb-6 shadow-brutal-sm"
+            className="flex flex-wrap items-center gap-4 mb-6"
           >
-            Software Engineer & Tech Creative
+            <div className="bg-accent px-4 py-2 border-2 border-ink font-bold font-sans text-xs uppercase tracking-widest text-ink shadow-brutal-sm">
+              Software Engineer & Tech Creative
+            </div>
+            <div className="flex items-center gap-2 bg-card px-4 py-2 border-2 border-ink font-bold font-sans text-xs uppercase tracking-widest text-ink shadow-brutal-sm">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse border border-ink"></span>
+              Available for new project
+            </div>
           </motion.div>
 
           <h1 className="font-sans font-bold text-5xl lg:text-7xl tracking-tight text-ink leading-[1.1] mb-8">

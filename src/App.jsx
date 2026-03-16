@@ -13,6 +13,8 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import ClientProjects from './pages/ClientProjects';
+import ScrollToTop from './components/ScrollToTop';
 
 const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -120,6 +122,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="bg-bg selection:bg-accent selection:text-ink overflow-x-hidden">
         <AnimatePresence>
           {loading && <Preloader key="preloader" />}
@@ -132,6 +135,7 @@ function App() {
           <Route path="/" element={<MainPortfolio />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/projects" element={<ClientProjects />} />
         </Routes>
         
         <Footer />
