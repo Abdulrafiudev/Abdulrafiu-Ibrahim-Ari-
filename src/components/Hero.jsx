@@ -1,6 +1,19 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import PixelImageTransition from "./PixelImageTransition";
 
 const Hero = () => {
+  const images = ["./portfolio-hero.jpg", "./passport2.jpg", "./image3.jpeg"];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const headline =
     "I build web apps that help African Startups & Web3 projects grow.";
   const words = headline.split(" ");
@@ -94,13 +107,10 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="aspect-[3/4] bg-card border-4 border-ink shadow-brutal relative overflow-hidden group"
           >
-            <img
-              src="./portfolio-hero.jpg"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+            <PixelImageTransition src={images[currentImageIndex]} />
 
             {/* Decorative brutalist corner */}
-            <div className="absolute top-0 right-0 w-12 h-12 bg-accent border-b-4 border-l-4 border-ink flex items-center justify-center font-bold">
+            <div className="absolute top-0 right-0 z-10 w-12 h-12 bg-accent border-b-4 border-l-4 border-ink flex items-center justify-center font-bold">
               ✨
             </div>
           </motion.div>
