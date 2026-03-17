@@ -68,7 +68,7 @@ const Preloader = () => {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="border-4 border-ink bg-card px-10 py-5 shadow-brutal"
       >
-        <h1 className="font-sans font-black text-6xl md:text-8xl text-ink tracking-tighter uppercase">
+        <h1 className="font-serif font-black text-6xl md:text-8xl text-ink tracking-tighter uppercase">
           Ari.
         </h1>
       </motion.div>

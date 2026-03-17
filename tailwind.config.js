@@ -14,7 +14,7 @@ export default {
         border: "#E8E6E0",
       },
       fontFamily: {
-        serif: ['"DM Sans"', "sans-serif"], // Re-mapping serif to sans to unify typography
+        serif: ["DM Serif Display", "serif"],
         sans: ['"DM Sans"', "sans-serif"],
       },
       boxShadow: {
