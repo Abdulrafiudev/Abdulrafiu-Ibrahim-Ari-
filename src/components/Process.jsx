@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 const staggerContainer = {
   hidden: {},
@@ -45,6 +46,20 @@ const Process = () => {
       desc: "After launch: a recorded codebase walkthrough, documentation, and 2 weeks of free bug fixes. You own everything."
     }
   ];
+  
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth > 768 ? 400 : clientWidth;
+      const scrollTo = direction === 'left' 
+        ? scrollLeft - scrollAmount 
+        : scrollLeft + scrollAmount;
+      
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="process" className="py-24 lg:py-32 px-6 lg:px-12 max-w-7xl mx-auto border-t-4 border-ink relative">
@@ -53,18 +68,43 @@ const Process = () => {
         How I Work
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="mb-14 mt-12 max-w-2xl"
-      >
-        <h2 className="font-sans font-bold text-4xl lg:text-5xl text-ink tracking-tight mb-4">How I work with clients</h2>
-        <p className="font-sans font-medium text-lg text-ink bg-accent-light inline-block px-2">From first conversation to shipped product — here's exactly what to expect.</p>
-      </motion.div>
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 mt-12 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl"
+        >
+          <h2 className="font-sans font-bold text-4xl lg:text-5xl text-ink tracking-tight mb-4">How I work with clients</h2>
+          <p className="font-sans font-medium text-lg text-ink bg-accent-light inline-block px-2">From first conversation to shipped product — here's exactly what to expect.</p>
+        </motion.div>
+
+        {/* Navigation Buttons - Only visible on desktop/tablet where they are most needed */}
+        <div className="hidden md:flex gap-4">
+          <button 
+            onClick={() => scroll('left')}
+            className="w-12 h-12 bg-card border-4 border-ink flex items-center justify-center shadow-brutal-sm hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all active:bg-accent"
+            aria-label="Scroll left"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button 
+            onClick={() => scroll('right')}
+            className="w-12 h-12 bg-accent border-4 border-ink flex items-center justify-center shadow-brutal-sm hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all active:bg-accent-light"
+            aria-label="Scroll right"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
 
       <motion.div
+        ref={scrollRef}
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
