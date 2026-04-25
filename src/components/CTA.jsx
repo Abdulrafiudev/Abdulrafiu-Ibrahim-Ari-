@@ -101,17 +101,26 @@ const CTA = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="font-sans font-bold text-base text-ink mt-8 flex flex-col md:flex-row items-center justify-center gap-2"
+          className="font-sans font-bold text-base text-ink mt-8 flex flex-col md:flex-row items-center justify-center gap-3"
         >
-          <span>Or reach me on Twitter:</span>
-          <a
-            href="https://x.com/Abdulrafiu_dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-card px-2 py-1 border-2 border-ink hover:bg-ink hover:text-card transition-colors shadow-brutal-sm"
-          >
-            @Abdulrafiu_dev
-          </a>
+          <span>You can also reach me via</span>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://x.com/Abdulrafiu_dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card px-3 py-1 border-2 border-ink hover:bg-ink hover:text-card transition-colors shadow-brutal-sm"
+            >
+              Twitter
+            </a>
+            <span>or</span>
+            <a
+              href="mailto:abdulrafiu.dev@gmail.com"
+              className="bg-card px-3 py-1 border-2 border-ink hover:bg-ink hover:text-card transition-colors shadow-brutal-sm"
+            >
+              Email
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
