@@ -11,16 +11,22 @@ const CountUp = ({ to, suffix = "", duration = 1.5 }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-
   useEffect(() => {
     if (inView) {
-      animate(count, to, { duration: duration, ease: "easeOut" });
+      const controls = animate(0, to, {
+        duration: duration,
+        ease: "easeOut",
+        onUpdate(value) {
+          if (ref.current) {
+            ref.current.textContent = Math.round(value) + suffix;
+          }
+        },
+      });
+      return () => controls.stop();
     }
-  }, [inView, count, to, duration]);
+  }, [inView, to, duration, suffix]);
 
-  return <motion.span ref={ref}>{rounded}</motion.span>;
+  return <span ref={ref}>0{suffix}</span>;
 };
 
 const StaticCountUp = ({ text }) => {
