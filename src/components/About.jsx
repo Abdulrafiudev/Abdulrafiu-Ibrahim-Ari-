@@ -9,7 +9,8 @@ import {
 
 const CountUp = ({ to, suffix = "", duration = 1.5 }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  // Using a less restrictive margin for mobile screens where viewport height is small
+  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   useEffect(() => {
     if (inView) {
@@ -31,7 +32,7 @@ const CountUp = ({ to, suffix = "", duration = 1.5 }) => {
 
 const StaticCountUp = ({ text }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
   return (
     <span
       ref={ref}
