@@ -40,7 +40,7 @@ const PixelImageTransition = ({ src }) => {
 
               // Use slightly larger values (10.5% instead of 10%) to overlap pixels and hide lines
               const cellSize = 100 / GRID_SIZE;
-              const overlap = 0.5; 
+              const overlap = 0.5;
 
               return (
                 <motion.div
@@ -50,9 +50,11 @@ const PixelImageTransition = ({ src }) => {
                   transition={{
                     duration: 0.3,
                     delay: (x + y) * 0.05 + Math.random() * 0.15,
-                    ease: "easeOut"
+                    ease: "easeOut",
                   }}
-                  onAnimationComplete={isLast ? handleAnimationComplete : undefined}
+                  onAnimationComplete={
+                    isLast ? handleAnimationComplete : undefined
+                  }
                   className="absolute overflow-hidden"
                   style={{
                     left: `${x * cellSize - overlap / 2}%`,
@@ -71,8 +73,8 @@ const PixelImageTransition = ({ src }) => {
                       width: `${(100 / (cellSize + overlap)) * 100}%`,
                       height: `${(100 / (cellSize + overlap)) * 100}%`,
                       // Shifted to the correct window relative to the pixel
-                      left: `-${(x * cellSize) / (cellSize + overlap) * 100}%`,
-                      top: `-${(y * cellSize) / (cellSize + overlap) * 100}%`,
+                      left: `-${((x * cellSize) / (cellSize + overlap)) * 100}%`,
+                      top: `-${((y * cellSize) / (cellSize + overlap)) * 100}%`,
                       maxWidth: "none",
                     }}
                   />

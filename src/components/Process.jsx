@@ -1,16 +1,21 @@
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const staggerContainer = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.1 },
+  },
 };
 
 const staggerItem = {
   hidden: { opacity: 0, y: 24, x: -10 },
-  show: { opacity: 1, y: 0, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+  show: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const Process = () => {
@@ -18,52 +23,55 @@ const Process = () => {
     {
       num: "01",
       title: "Discovery Call",
-      desc: "30 minutes, free. I learn about your problem, your users, and what success looks like. This conversation shapes everything."
+      desc: "30 minutes, free. I learn about your problem, your users, and what success looks like. This conversation shapes everything.",
     },
     {
       num: "02",
       title: "Scope Document",
-      desc: "Before any code: a clear document covering what we're building, what we're not building, the tech stack, timeline, and price. No surprises."
+      desc: "Before any code: a clear document covering what we're building, what we're not building, the tech stack, timeline, and price. No surprises.",
     },
     {
       num: "03",
       title: "Pricing",
-      desc: "Per project, not per hour. You know exactly what you're committing to before we start. Clean, predictable, professional."
+      desc: "Per project, not per hour. You know exactly what you're committing to before we start. Clean, predictable, professional.",
     },
     {
       num: "04",
       title: "Weekly Check-ins",
-      desc: "Every week: what got done, what's next, and any decisions I need from you. You never have to chase me for updates."
+      desc: "Every week: what got done, what's next, and any decisions I need from you. You never have to chase me for updates.",
     },
     {
       num: "05",
       title: "Staging Review",
-      desc: "Before launch, you get a live staging link to review and test. Feedback here is free. Feedback after launch costs more."
+      desc: "Before launch, you get a live staging link to review and test. Feedback here is free. Feedback after launch costs more.",
     },
     {
       num: "06",
       title: "Launch & Handover",
-      desc: "After launch: a recorded codebase walkthrough, documentation, and 2 weeks of free bug fixes. You own everything."
-    }
+      desc: "After launch: a recorded codebase walkthrough, documentation, and 2 weeks of free bug fixes. You own everything.",
+    },
   ];
-  
+
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
       const scrollAmount = clientWidth > 768 ? 400 : clientWidth;
-      const scrollTo = direction === 'left' 
-        ? scrollLeft - scrollAmount 
-        : scrollLeft + scrollAmount;
-      
-      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - scrollAmount
+          : scrollLeft + scrollAmount;
+
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
   };
 
   return (
-    <section id="process" className="py-24 lg:py-32 px-6 lg:px-12 max-w-7xl mx-auto border-t-4 border-ink relative">
-      
+    <section
+      id="process"
+      className="py-24 lg:py-32 px-6 lg:px-12 max-w-7xl mx-auto border-t-4 border-ink relative"
+    >
       <div className="absolute top-0 left-6 lg:left-12 -translate-y-1/2 bg-accent px-4 py-1 border-2 border-ink shadow-brutal-sm font-bold text-xs uppercase tracking-widest text-ink z-10">
         How I Work
       </div>
@@ -76,27 +84,48 @@ const Process = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl"
         >
-          <h2 className="font-sans font-bold text-4xl lg:text-5xl text-ink tracking-tight mb-4">How I work with clients</h2>
-          <p className="font-sans font-medium text-lg text-ink bg-accent-light inline-block px-2">From first conversation to shipped product — here's exactly what to expect.</p>
+          <h2 className="font-sans font-bold text-4xl lg:text-5xl text-ink tracking-tight mb-4">
+            How I work with clients
+          </h2>
+          <p className="font-sans font-medium text-lg text-ink bg-accent-light inline-block px-2">
+            From first conversation to shipped product — here's exactly what to
+            expect.
+          </p>
         </motion.div>
 
         {/* Navigation Buttons - Only visible on desktop/tablet where they are most needed */}
         <div className="hidden md:flex gap-4">
-          <button 
-            onClick={() => scroll('left')}
+          <button
+            onClick={() => scroll("left")}
             className="w-12 h-12 bg-card border-4 border-ink flex items-center justify-center shadow-brutal-sm hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all active:bg-accent"
             aria-label="Scroll left"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="square"
+            >
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
-          <button 
-            onClick={() => scroll('right')}
+          <button
+            onClick={() => scroll("right")}
             className="w-12 h-12 bg-accent border-4 border-ink flex items-center justify-center shadow-brutal-sm hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all active:bg-accent-light"
             aria-label="Scroll right"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="square">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="square"
+            >
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
@@ -120,20 +149,21 @@ const Process = () => {
             <div className="absolute top-4 right-4 font-sans font-black text-4xl lg:text-6xl text-ink/10 leading-none select-none group-hover:text-accent transition-colors">
               {step.num}
             </div>
-            
+
             <div className="w-12 h-12 bg-accent border-2 border-ink mb-6 flex items-center justify-center font-bold text-ink shadow-brutal-sm">
               {step.num}
             </div>
-            
-            <h3 className="font-sans font-bold text-xl text-ink mb-4 relative z-10">{step.title}</h3>
-            
+
+            <h3 className="font-sans font-bold text-xl text-ink mb-4 relative z-10">
+              {step.title}
+            </h3>
+
             <p className="font-sans text-sm font-medium text-ink leading-relaxed relative z-10 pt-4 border-t-2 border-ink border-dashed">
               {step.desc}
             </p>
           </motion.div>
         ))}
       </motion.div>
-
     </section>
   );
 };

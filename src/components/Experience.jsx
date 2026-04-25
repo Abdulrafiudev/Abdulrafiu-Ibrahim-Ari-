@@ -14,6 +14,17 @@ const Experience = () => {
       ],
     },
     {
+      company: "Amata Storybooks",
+      role: "Software Engineer",
+      period: "March 2026 – May 2026",
+      type: "Contract",
+      responsibilities: [
+        "Built a full-stack AI-powered kids application for kids aged 7-13.",
+        "Integrated child-safe LLM features to generate personalized, interactive storybooks dynamically.",
+        "Developed gamified UI components to increase engagement and retention for young readers.",
+      ],
+    },
+    {
       company: "CursorCart",
       role: "Frontend Engineer",
       period: "March 2025 – Dec 2025",

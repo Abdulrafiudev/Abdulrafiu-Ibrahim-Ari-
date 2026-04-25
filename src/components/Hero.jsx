@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 import PixelImageTransition from "./PixelImageTransition";
 
 const Hero = () => {
-  const images = ["./portfolio-hero.jpg", "./passport2.jpg", "./image3.jpeg"];
+  const images = [
+    "./portfolio-hero.jpg",
+    "./image_7.jpeg",
+    "./image6.jpeg",
+    "./image3.jpeg",
+  ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {

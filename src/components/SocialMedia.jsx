@@ -19,17 +19,17 @@ const SocialMedia = () => {
     },
     {
       name: "YouTube",
-      link: "https://youtube.com/@Ari_dev",
+      link: "https://youtube.com/@abdulrafiu_dev",
       color: "bg-[#FF0000]",
     },
     {
       name: "Instagram",
-      link: "https://www.instagram.com/ari__dev",
+      link: "https://www.instagram.com/ar1.dev",
       color: "bg-[#E1306C]",
     },
     {
       name: "TikTok",
-      link: "https://www.tiktok.com/@abdulrafiucodes",
+      link: "https://www.tiktok.com/@ari..dev",
       color: "bg-[#000000]",
     },
   ];

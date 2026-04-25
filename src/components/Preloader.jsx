@@ -6,10 +6,10 @@ const Preloader = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { text: "building 🛠️", rotation: "-3deg" },
-    { text: "creating 🎬", rotation: "2deg" },
-    { text: "thinking 💡", rotation: "-1deg" },
-    { text: "shipping 🚀", rotation: "3deg" },
+    { text: "building 🛠️", rotation: "-3deg", image: "./image1.jpeg" },
+    { text: "creating 🎬", rotation: "2deg", image: "./image2.jpeg" },
+    { text: "thinking 💡", rotation: "-1deg", image: "./image3.jpeg" },
+    { text: "shipping 🚀", rotation: "3deg", image: "./image_8.jpeg" },
   ];
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Preloader = () => {
                 style={{ zIndex: index }}
               >
                 <img
-                  src={`./image${index + 1}.jpeg`}
+                  src={slide.image}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 {/* <div className="absolute inset-0 bg-accent/10 flex items-center justify-center font-bold text-ink/30 uppercase tracking-widest text-xs">

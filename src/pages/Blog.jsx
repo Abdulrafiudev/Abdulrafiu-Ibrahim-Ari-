@@ -1,75 +1,70 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
-  const posts = [
-    {
-      id: 'obgs-of-kwasu',
-      title: 'How I became the OBGS of KWASU',
-      excerpt: 'The untold story of resilience, late nights, and the journey of becoming a recognized builder in my community.',
-      date: 'March 15, 2024',
-      category: 'Story',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800'
-    },
-    // More posts can be added here
-  ];
-
   return (
-    <div className="pt-32 pb-24 px-6 lg:px-12 max-w-7xl mx-auto min-h-screen">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-16"
-      >
-        <h1 className="font-sans font-black text-6xl md:text-8xl text-ink tracking-tighter uppercase mb-4">
-          The Blog
-        </h1>
-        <p className="font-sans font-bold text-xl text-ink/70">
-          Thoughts, technical deep dives, and stories from the journey.
-        </p>
-      </motion.div>
+    <div className="min-h-screen bg-bg flex flex-col items-center justify-center px-4 sm:px-6 relative overflow-hidden">
+      {/* Background decorative grid lines */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, #000 0, #000 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, #000 0, #000 1px, transparent 1px, transparent 60px)",
+        }}
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {posts.map((post, index) => (
-          <motion.div
-            key={post.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            className="group"
+      {/* Decorative accent block top-left */}
+      <div className="absolute top-12 left-6 lg:left-12 w-16 h-16 bg-accent border-4 border-ink shadow-brutal hidden sm:block" />
+      {/* Decorative block bottom-right */}
+      <div className="absolute bottom-12 right-6 lg:right-12 w-10 h-10 bg-ink hidden sm:block" />
+
+      <div className="relative z-10 max-w-2xl w-full text-center">
+        {/* Tag */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block bg-accent border-2 border-ink px-4 py-1 font-sans font-bold text-xs uppercase tracking-widest text-ink shadow-brutal-sm mb-8"
+        >
+          Blog
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="font-sans font-black text-6xl sm:text-8xl lg:text-9xl text-ink tracking-tighter leading-none uppercase mb-6"
+        >
+          Coming
+          <br />
+          <span className="text-accent">Soon.</span>
+        </motion.h1>
+
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="font-sans font-medium text-lg text-ink/70 leading-relaxed mb-12 max-w-md mx-auto"
+        >
+          I'm putting my thoughts on software, startups, building in Africa, and
+          my life journey into words. Check back soon.
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <Link
+            to="/"
+            className="inline-block bg-ink text-bg font-black font-sans text-sm uppercase tracking-widest px-8 py-4 border-4 border-ink shadow-brutal hover:translate-y-[4px] hover:translate-x-[4px] hover:shadow-none transition-all"
           >
-            <Link to={`/blog/${post.id}`} className="block">
-              <div className="border-4 border-ink bg-card shadow-brutal transition-all hover:-translate-y-2 hover:translate-x-2 hover:shadow-none overflow-hidden h-full flex flex-col">
-                <div className="aspect-video bg-accent relative overflow-hidden border-b-4 border-ink">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                  />
-                  <div className="absolute top-4 left-4 bg-accent px-3 py-1 border-2 border-ink font-bold text-xs uppercase shadow-brutal-sm">
-                    {post.category}
-                  </div>
-                </div>
-                
-                <div className="p-8 flex-grow">
-                  <div className="font-sans font-bold text-sm text-ink/50 mb-4">{post.date}</div>
-                  <h2 className="font-sans font-black text-3xl text-ink tracking-tight mb-4 group-hover:text-accent transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="font-sans font-medium text-ink/70 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                </div>
-
-                <div className="px-8 pb-8">
-                  <span className="font-sans font-black text-sm uppercase tracking-widest text-ink group-hover:underline underline-offset-4 decoration-4 decoration-accent">
-                    Read Story →
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+            ← Back to Home
+          </Link>
+        </motion.div>
       </div>
     </div>
   );
