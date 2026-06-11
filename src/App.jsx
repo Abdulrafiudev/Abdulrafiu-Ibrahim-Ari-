@@ -1,20 +1,20 @@
-import { useState, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import Preloader from './components/Preloader';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Process from './components/Process';
-import Work from './components/Work';
-import SocialMedia from './components/SocialMedia';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import ClientProjects from './pages/ClientProjects';
-import ScrollToTop from './components/ScrollToTop';
+import { useState, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import Preloader from "./components/Preloader";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Process from "./components/Process";
+import Work from "./components/Work";
+import SocialMedia from "./components/SocialMedia";
+import CTA from "./components/CTA";
+import Footer from "./components/Footer";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import ClientProjects from "./pages/ClientProjects";
+import ScrollToTop from "./components/ScrollToTop";
 
 const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -23,6 +23,8 @@ const CustomCursor = () => {
   const mousePos = useRef({ x: 0, y: 0 });
   const ringPos = useRef({ x: 0, y: 0 });
   const requestRef = useRef(null);
+
+  //changes
 
   useEffect(() => {
     const onMouseMove = (e) => {
@@ -35,10 +37,10 @@ const CustomCursor = () => {
     const handleMouseOver = (e) => {
       const target = e.target;
       if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button')
+        target.tagName.toLowerCase() === "a" ||
+        target.tagName.toLowerCase() === "button" ||
+        target.closest("a") ||
+        target.closest("button")
       ) {
         setIsHovering(true);
       } else {
@@ -46,8 +48,8 @@ const CustomCursor = () => {
       }
     };
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
 
     const lerp = (start, end, factor) => {
       return start + (end - start) * factor;
@@ -67,26 +69,26 @@ const CustomCursor = () => {
     requestRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
       cancelAnimationFrame(requestRef.current);
     };
   }, [isHovering]);
 
   return (
     <>
-      <div 
+      <div
         ref={dotRef}
         className="fixed top-0 left-0 w-3 h-3 rounded-full pointer-events-none z-[9999]"
-        style={{ 
-          backgroundColor: '#000000'
+        style={{
+          backgroundColor: "#000000",
         }}
       />
-      <div 
+      <div
         ref={ringRef}
         className="fixed top-0 left-0 w-8 h-8 border-2 rounded-full pointer-events-none z-[9999] transition-transform duration-75 ease-out"
-        style={{ 
-          borderColor: '#000000'
+        style={{
+          borderColor: "#000000",
         }}
       />
     </>
@@ -137,7 +139,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/projects" element={<ClientProjects />} />
         </Routes>
-        
+
         <Footer />
       </div>
     </Router>
